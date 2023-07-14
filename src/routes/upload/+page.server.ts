@@ -22,10 +22,12 @@ export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
 
+    console.log(data.get('author'))
+
     const books = await fetchItems({
         title: data.get('title'),
         description: data.get('description'),
-        authorId: 1,
+        authorId: parseInt(data.get('author')),
         yearPublished: parseInt(data.get('yearPublished')),
         copiesTotal: parseInt(data.get('copiesTotal')),
         copiesAvailable: parseInt(data.get('copiesTotal')),
@@ -36,3 +38,19 @@ export const actions = {
     return { success: true }
   }
 };
+
+export const load = async () => {
+
+  const fetchItems = async () => {
+    const api_host = env.API_HOST ? env.API_HOST : 'localhost'
+    const api_port = env.API_PORT ? env.API_PORT : '8080'
+
+    const result = await fetch(`http://${api_host}:${api_port}/authors`);
+    const data: Api.Author[] = await result.json();
+    return data;
+  }
+
+  return {
+    authors: fetchItems()
+  }
+}

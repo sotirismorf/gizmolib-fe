@@ -14,4 +14,10 @@ declare namespace Api {
     copiesAvailable: number
     copiesTotal: number
   }
+
+  interface Author {
+    ID: number
+    Name: string
+    Bio: string
+  }
 }

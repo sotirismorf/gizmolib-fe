@@ -9,6 +9,7 @@
 	<input
     class="bg-gray-700 focus:bg-gray-600 outline-none"
     type="text"
+    autocomplete="off"
     {id}
     {placeholder}
     name={id}
