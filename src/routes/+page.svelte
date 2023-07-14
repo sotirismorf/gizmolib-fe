@@ -11,6 +11,7 @@
 </svelte:head>
 
 <div>
+	<div class="bold text-3xl pb-4">Κατάλογος</div>
 	{#each items as item}
 		<BookItem book={item} />
 	{/each}

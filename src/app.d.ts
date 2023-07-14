@@ -5,10 +5,10 @@ declare namespace App {}
 
 declare namespace Api {
   interface Book {
-    id: number
+    id?: number
     authorId: number
     title: string
-    authorName: string
+    authorName?: string
     description: string
     yearPublished: number
     copiesAvailable: number
