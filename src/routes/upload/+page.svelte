@@ -23,7 +23,7 @@
 		label="Συγγραφείς"
 		id="author"
 		placeholder="Karl Marx"
-		searchItems={authors.map(({ ID, Name }) => ({ id: ID, name: Name }))}
+		searchItems={authors.map(({ id, name }) => ({ id: id, name: name }))}
 	/>
 	<NumberInput label="Έτος Έκδοσης" id="yearPublished" min="1" max="2500" placeholder="1996" />
 	<NumberInput label="Συνολικά Αντίτυπα" id="copiesTotal" min="1" max="1000" placeholder="4" />

@@ -15,8 +15,8 @@ declare namespace Api {
   }
 
   interface Author {
-    ID: number
-    Name: string
-    Bio: string
+    id: number
+    name: string
+    bio: string
   }
 }
