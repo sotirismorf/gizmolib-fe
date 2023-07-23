@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../app.css';
+	import '../app.postcss';
 </script>
 
 <header class="mx-auto max-w-4xl py-6 sm:px-6 lg:px-8">
