@@ -7,9 +7,9 @@
 </script>
 
 <div>
-	<label for={id}>{label}</label>
+	<label class="w-1/4 float-left" for={id}>{label}</label>
 	<input
-		class="bg-gray-700 focus:bg-gray-600 outline-none"
+		class="w-3/4 float-right bg-gray-700 focus:bg-gray-600 outline-none"
 		type="number"
 		name={id}
 		{placeholder}

@@ -3,20 +3,30 @@
 declare namespace App {}
 
 declare namespace Api {
+
+  interface ApiBook {
+    data: Book[]
+    meta: any
+  }
+
   interface Book {
     id?: number
-    authorId: number
-    title: string
-    authorName?: string
-    description: string
-    yearPublished: number
-    copiesAvailable: number
-    copiesTotal: number
+    attributes: {
+      title: string
+      yearPublished: number
+      copiesTotal: number
+      copiesAvailable: number
+      description: string
+      authors: {
+        data: MyAuthor[]
+      }
+    }
   }
 
   interface Author {
     id: number
-    name: string
-    bio: string
+    attributes: {
+      name: string
+    }
   }
 }

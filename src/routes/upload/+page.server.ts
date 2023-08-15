@@ -2,9 +2,9 @@ import { env } from '$env/dynamic/private'
 
 const fetchItems = async (body: Api.Book) => {
   const api_host = env.API_HOST ? env.API_HOST : 'localhost'
-  const api_port = env.API_PORT ? env.API_PORT : '8080'
+  const api_port = env.API_PORT ? env.API_PORT : '1337'
 
-  const result = await fetch(`http://${api_host}:${api_port}/books`, {
+  const result = await fetch(`http://${api_host}:${api_port}/api/books`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
