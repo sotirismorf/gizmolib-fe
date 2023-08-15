@@ -22,8 +22,6 @@ export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
 
-    console.log(data.get('author'))
-
     const books = await fetchItems({
         title: data.get('title'),
         description: data.get('description'),
@@ -32,8 +30,6 @@ export const actions = {
         copiesTotal: parseInt(data.get('copiesTotal')),
         copiesAvailable: parseInt(data.get('copiesTotal')),
       })
-
-    console.log(books)
 
     return { success: true }
   }

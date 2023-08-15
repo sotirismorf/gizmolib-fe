@@ -1,23 +1,19 @@
-import { env } from '$env/dynamic/private'
+import { GL_API_TOKEN, GL_API_HOST, GL_API_PORT } from '$env/static/private'
 
 export const load = async () => {
 
   const fetchItems = async () => {
-    const api_host = env.API_HOST ? env.API_HOST : 'localhost'
-    const api_port = env.API_PORT ? env.API_PORT : '1337'
-
-    const result = await fetch(`http://127.0.0.1:1337/api/books?populate[0]=authors`,
+    const result = await fetch(`http://${GL_API_HOST}:${GL_API_PORT}/api/books?populate[0]=authors`,
       {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer your-token'
+          'Authorization': `Bearer ${GL_API_TOKEN}`
         },
       }
     );
     const data: Api.ApiBook = await result.json();
-    console.log(data.data)
     return data;
   }
 

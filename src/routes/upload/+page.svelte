@@ -5,8 +5,6 @@
 
   export let data;
   const { authors } = data;
-
-  console.log(authors);
 </script>
 
 <svelte:head>
