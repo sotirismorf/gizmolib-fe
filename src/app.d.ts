@@ -6,7 +6,16 @@ declare namespace Api {
 
   interface ApiBook {
     data: Book[]
-    meta: any
+    meta: {
+      pagination: Pagination
+    }
+  }
+
+  interface Pagination {
+    page: number
+    pageSize: number
+    pageCount: number
+    total: number
   }
 
   interface Book {
