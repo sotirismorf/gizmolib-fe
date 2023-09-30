@@ -10,20 +10,39 @@ declare namespace Api {
   }
 
   interface Book {
-    id?: number
+    id: number
     attributes: {
       title: string
+      description: string,
       yearPublished: number
-      copiesTotal: number
-      copiesAvailable: number
-      description: string
       authors: {
-        data: MyAuthor[]
+        data: Author[]
+      }
+      quantities: {
+        data: Quantity[]
       }
     }
   }
 
   interface Author {
+    id: number
+    attributes: {
+      name: string
+    }
+  }
+
+  interface Quantity {
+    id: number
+    attributes: {
+      copies_total: number
+      copies_available: number
+      library: {
+        data: Library
+      }
+    }
+  }
+
+  interface Library {
     id: number
     attributes: {
       name: string

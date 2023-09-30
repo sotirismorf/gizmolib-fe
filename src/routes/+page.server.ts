@@ -3,7 +3,29 @@ import { GL_API_TOKEN, GL_API_HOST, GL_API_PORT } from '$env/static/private'
 export const load = async () => {
 
   const fetchItems = async () => {
-    const result = await fetch(`http://${GL_API_HOST}:${GL_API_PORT}/api/books?populate[0]=authors`,
+
+    /* qs query:
+    {
+      populate: {
+        authors: {
+          fields: ['name']
+        },
+        quantities: {
+          fields: ['copies_total', 'copies_available'],
+          populate: {
+            library: {
+              fields: ['name']
+            },
+          },
+        }
+      },
+      fields: ['title', 'description', 'yearPublished'],
+    }
+    */
+
+    const query = 'populate[authors][fields][0]=name&populate[quantities][fields][0]=copies_total&populate[quantities][fields][1]=copies_available&populate[quantities][populate][library][fields][0]=name&fields[0]=title&fields[1]=description&fields[2]=yearPublished'
+
+    const result = await fetch(`${GL_API_HOST}/api/books?${query}`,
       {
         method: 'GET',
         headers: {
@@ -13,7 +35,9 @@ export const load = async () => {
         },
       }
     );
+
     const data: Api.ApiBook = await result.json();
+
     return data;
   }
 

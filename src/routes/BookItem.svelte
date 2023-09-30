@@ -8,13 +8,17 @@
     <span class="text-gray-200">{book.attributes.yearPublished}</span>
   </div>
   <div>
-    <span>By </span>
     {#each book.attributes.authors.data as author}
       {author.attributes.name}
     {/each}
   </div>
   <div class="text-gray-300 italic">{book.attributes.description}</div>
   <div class="text-gray-300 italic">
-    Διαθέσιμα: {book.attributes.copiesAvailable}/{book.attributes.copiesTotal}
+    {#each book.attributes.quantities.data as quantity, i}
+      <span>{quantity.attributes.library.data.attributes.name}</span>
+      {#if i < book.attributes.quantities.data.length - 1 }
+        <span>, </span>
+      {/if}
+    {/each}
   </div>
 </div>

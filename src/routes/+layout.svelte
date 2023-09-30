@@ -9,7 +9,6 @@
     <div class="font-bold text-5xl"><a href="/">gizmolib</a></div>
     <div>
       <a href="/upload" class="text-xl px-2">Δημοσίευση</a>
-      <a href="/login" class="text-xl px-2">Σύνδεση</a>
     </div>
   </div>
 </header>
