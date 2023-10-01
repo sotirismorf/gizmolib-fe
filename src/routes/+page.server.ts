@@ -50,8 +50,6 @@ export const load = async ({ url } : any ) => {
 
     const data: Api.ApiBook = await result.json();
 
-    console.log(data.data[0].attributes.publisher)
-
     return data;
   }
 
