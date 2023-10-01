@@ -1,4 +1,4 @@
-import { GL_API_TOKEN, GL_API_HOST } from '$env/static/private'
+import { STRAPI_API_TOKEN, STRAPI_URL } from '$env/static/private'
 
 export const load = async ({ url } : any ) => {
   const page = Number(url.searchParams.get('page')) || 1
@@ -37,13 +37,13 @@ export const load = async ({ url } : any ) => {
       + '&populate[publisher][fields][0]=name'
       + '&populate[quantities][fields][0]=copies_total&populate[quantities][fields][1]=copies_available&populate[quantities][populate][library][fields][0]=name'
 
-    const result = await fetch(`${GL_API_HOST}/api/books?${query}`,
+    const result = await fetch(`${STRAPI_URL}/api/books?${query}`,
       {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${GL_API_TOKEN}`
+          'Authorization': `Bearer ${STRAPI_API_TOKEN}`
         },
       }
     );
