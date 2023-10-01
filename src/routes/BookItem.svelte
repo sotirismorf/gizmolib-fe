@@ -8,14 +8,17 @@
     <span class="text-gray-200">{book.attributes.yearPublished}</span>
   </div>
   <div>
-    {#each book.attributes.authors.data as author}
-      {author.attributes.name}
+    {#each book.attributes.authors.data as author, i}
+      <span>{author.attributes.name}</span>
+      {#if i < book.attributes.authors.data.length - 1}
+        <span>, </span>
+      {/if}
     {/each}
   </div>
   <div class="text-gray-300 italic">
     {#each book.attributes.quantities.data as quantity, i}
       <span>{quantity.attributes.library.data.attributes.name}</span>
-      {#if i < book.attributes.quantities.data.length - 1 }
+      {#if i < book.attributes.quantities.data.length - 1}
         <span>, </span>
       {/if}
     {/each}
