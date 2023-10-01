@@ -12,7 +12,6 @@
       {author.attributes.name}
     {/each}
   </div>
-  <div class="text-gray-300 italic">{book.attributes.description}</div>
   <div class="text-gray-300 italic">
     {#each book.attributes.quantities.data as quantity, i}
       <span>{quantity.attributes.library.data.attributes.name}</span>

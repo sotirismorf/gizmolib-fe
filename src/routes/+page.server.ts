@@ -22,13 +22,13 @@ export const load = async ({ url } : any ) => {
           },
         }
       },
-      fields: ['title', 'description', 'yearPublished'],
+      fields: ['title', 'yearPublished'],
     }
     */
 
     const query = `pagination[page]=${page}&pagination[pageSize]=${pageSize}`
       + `${search ? `&filters[title][$containsi]=${search}` : '' }`
-      + '&populate[authors][fields][0]=name&populate[quantities][fields][0]=copies_total&populate[quantities][fields][1]=copies_available&populate[quantities][populate][library][fields][0]=name&fields[0]=title&fields[1]=description&fields[2]=yearPublished'
+      + '&populate[authors][fields][0]=name&populate[quantities][fields][0]=copies_total&populate[quantities][fields][1]=copies_available&populate[quantities][populate][library][fields][0]=name&fields[0]=title&fields[1]=yearPublished'
 
     const result = await fetch(`${GL_API_HOST}/api/books?${query}`,
       {
