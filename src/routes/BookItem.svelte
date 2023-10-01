@@ -2,7 +2,7 @@
   export let book: Api.Book;
 </script>
 
-<div class="border-t border-t-white py-3">
+<div class="border-t border-t-zinc-500 py-3">
   <div class="pb-1">
     <span class="text-xl font-bold">{book.attributes.title}</span>
     <span class="text-gray-200">{book.attributes.yearPublished}</span>
