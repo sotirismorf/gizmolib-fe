@@ -6,6 +6,9 @@
   <div class="pb-1">
     <span class="text-xl font-bold">{book.attributes.title}</span>
     <span class="text-gray-200">{book.attributes.yearPublished}</span>
+    {#if book.attributes.publisher.data}
+      <span class="float-right">{book.attributes.publisher.data.attributes.name}</span>
+    {/if}
   </div>
   <div>
     {#each book.attributes.authors.data as author, i}

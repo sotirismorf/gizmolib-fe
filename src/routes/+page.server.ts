@@ -13,6 +13,9 @@ export const load = async ({ url } : any ) => {
         authors: {
           fields: ['name']
         },
+        publisher: {
+          fields: ['name']
+        },
         quantities: {
           fields: ['copies_total', 'copies_available'],
           populate: {
@@ -26,9 +29,13 @@ export const load = async ({ url } : any ) => {
     }
     */
 
-    const query = `pagination[page]=${page}&pagination[pageSize]=${pageSize}`
+    const query =
+      `pagination[page]=${page}&pagination[pageSize]=${pageSize}`
       + `${search ? `&filters[title][$containsi]=${search}` : '' }`
-      + '&populate[authors][fields][0]=name&populate[quantities][fields][0]=copies_total&populate[quantities][fields][1]=copies_available&populate[quantities][populate][library][fields][0]=name&fields[0]=title&fields[1]=yearPublished'
+      + '&fields[0]=title&fields[1]=yearPublished'
+      + '&populate[authors][fields][0]=name'
+      + '&populate[publisher][fields][0]=name'
+      + '&populate[quantities][fields][0]=copies_total&populate[quantities][fields][1]=copies_available&populate[quantities][populate][library][fields][0]=name'
 
     const result = await fetch(`${GL_API_HOST}/api/books?${query}`,
       {
@@ -42,6 +49,8 @@ export const load = async ({ url } : any ) => {
     );
 
     const data: Api.ApiBook = await result.json();
+
+    console.log(data.data[0].attributes.publisher)
 
     return data;
   }

@@ -30,10 +30,20 @@ declare namespace Api {
       quantities: {
         data: Quantity[]
       }
+      publisher: {
+        data: Publisher
+      }
     }
   }
 
   interface Author {
+    id: number
+    attributes: {
+      name: string
+    }
+  }
+
+  interface Publisher {
     id: number
     attributes: {
       name: string
