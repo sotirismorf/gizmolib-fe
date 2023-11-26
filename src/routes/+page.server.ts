@@ -32,6 +32,7 @@ export const load = async ({ url } : any ) => {
     const query =
       `pagination[page]=${page}&pagination[pageSize]=${pageSize}`
       + `${search ? `&filters[title][$containsi]=${search}` : '' }`
+      // + '&filters[quantities][id][$notNull]=true'
       + '&fields[0]=title&fields[1]=yearPublished'
       + '&populate[authors][fields][0]=name'
       + '&populate[publisher][fields][0]=name'
