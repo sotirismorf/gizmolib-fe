@@ -8,8 +8,8 @@
 </script>
 
 <svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>Αρχική σελίδα - gizmolib</title>
+  <meta name="description" content="Ψηφιακός Κατάλογος Κινηματικών Βιβλιoθηκών" />
 </svelte:head>
 
 <form action="/" method="get">
