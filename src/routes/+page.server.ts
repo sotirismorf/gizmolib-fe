@@ -1,4 +1,4 @@
-import { STRAPI_API_TOKEN, STRAPI_URL } from '$env/static/private'
+import { env } from '$env/dynamic/private'
 
 export const load = async ({ url } : any ) => {
   const page = Number(url.searchParams.get('page')) || 1
@@ -38,13 +38,13 @@ export const load = async ({ url } : any ) => {
       + '&populate[publisher][fields][0]=name'
       + '&populate[quantities][fields][0]=copies_total&populate[quantities][fields][1]=copies_available&populate[quantities][populate][library][fields][0]=name'
 
-    const result = await fetch(`${STRAPI_URL}/api/books?${query}`,
+    const result = await fetch(`${env.STRAPI_URL}/api/books?${query}`,
       {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${STRAPI_API_TOKEN}`
+          'Authorization': `Bearer ${env.STRAPI_API_TOKEN}`
         },
       }
     );
