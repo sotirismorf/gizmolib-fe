@@ -1,6 +1,6 @@
 <script lang="ts">
   import SearchInput from "$lib/components/inputs/SearchInput.svelte";
-  import BookItem from "./BookItem.svelte";
+  import BookItem from "$lib/components/BookItem.svelte";
 
   export let data;
 

@@ -44,7 +44,7 @@ export const load = async ({ url } : any ) => {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${env.STRAPI_API_TOKEN}`
+          'Authorization': `Bearer ${env.STRAPI_TOKEN}`
         },
       }
     );
